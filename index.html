@@ -1,0 +1,239 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap');
+
+.rg13, .rg13 * { box-sizing: border-box; }
+.rg13 {
+  --rg-bg: #071824;
+  --rg-panel: #0c2436;
+  --rg-panel-2: #10304a;
+  --rg-line: #1b4263;
+  --rg-blue: #0b78c8;
+  --rg-sky: #30a7ff;
+  --rg-text: #eaf4fc;
+  --rg-mute: #8fb2cc;
+  --rg-warn: #ffc857;
+  max-width: 880px;
+  margin: 0 auto;
+  background: var(--rg-bg);
+  color: var(--rg-text);
+  font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.rg13 h2, .rg13 h3, .rg13 p, .rg13 ul { margin: 0; padding: 0; }
+.rg13 .rg13-display { font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; }
+
+/* Header */
+.rg13-head { padding: 32px 32px 26px; border-bottom: 4px solid var(--rg-blue); }
+.rg13-head h2 {
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1.02;
+  letter-spacing: 0.2px;
+  color: #fff;
+  max-width: 17em;
+}
+.rg13-head p { margin-top: 12px; color: var(--rg-mute); font-size: 17px; max-width: 36em; }
+
+/* Sections */
+.rg13-sec { padding: 28px 32px 8px; }
+.rg13-sec h3 {
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.1;
+  color: #fff;
+}
+.rg13-sec .rg13-sub { margin-top: 6px; color: var(--rg-mute); font-size: 15px; max-width: 40em; }
+
+/* Legend */
+.rg13-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 18px 0 4px; font-size: 14px; color: var(--rg-mute); }
+.rg13-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.rg13-key { width: 14px; height: 14px; border-radius: 2px; display: inline-block; }
+.rg13-key-13 { background: var(--rg-sky); }
+.rg13-key-nostar { background: var(--rg-blue); }
+.rg13-key-other { background: #4c6a82; }
+.rg13-key-line { width: 0; height: 16px; border-left: 2px dashed #fff; border-radius: 0; }
+
+/* Index chart */
+.rg13-chart { margin-top: 14px; }
+.rg13-league { padding: 14px 0 16px; border-top: 1px solid var(--rg-line); }
+.rg13-league:first-child { border-top: 0; }
+.rg13-lname { font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif; font-weight: 700; font-size: 22px; color: #fff; margin-bottom: 8px; }
+.rg13-lname small { font-family: 'Barlow', Arial, sans-serif; font-weight: 400; font-size: 14px; color: var(--rg-mute); margin-left: 8px; }
+.rg13-track { position: relative; }
+/* baseline at index 100 = 80% of a 0-125 scale */
+.rg13-track::after {
+  content: ""; position: absolute; top: -4px; bottom: -4px; left: 80%;
+  border-left: 2px dashed rgba(255,255,255,0.85); pointer-events: none;
+}
+.rg13-bar {
+  height: 32px; margin-bottom: 6px; border-radius: 3px;
+  display: flex; align-items: center; justify-content: flex-start; gap: 12px;
+  padding: 0 10px; font-weight: 600; font-size: 15px; white-space: nowrap; overflow: hidden;
+}
+.rg13-bar:last-child { margin-bottom: 0; }
+.rg13-bar b { order: -1; min-width: 56px; }
+.rg13-bar b { font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.3px; }
+.rg13-b13 { background: var(--rg-sky); color: #04131d; }
+.rg13-bno { background: var(--rg-blue); color: #fff; }
+.rg13-baseline-note { margin-top: 8px; font-size: 13px; color: var(--rg-mute); text-align: right; }
+.rg13-baseline-note span { display: inline-block; width: 20%; text-align: left; min-width: 150px; }
+
+/* All-Star pairs */
+.rg13-pairs { margin-top: 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.rg13-pair { background: var(--rg-panel); border: 1px solid var(--rg-line); border-radius: 4px; padding: 16px 16px 18px; }
+.rg13-pair .rg13-lname { margin-bottom: 12px; }
+.rg13-col { display: flex; align-items: flex-end; gap: 12px; height: 150px; }
+.rg13-colwrap { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; }
+.rg13-colbar { width: 100%; border-radius: 3px 3px 0 0; }
+.rg13-colval { font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif; font-weight: 800; font-size: 24px; line-height: 1; margin-bottom: 4px; }
+.rg13-collab { font-size: 13px; color: var(--rg-mute); margin-top: 6px; }
+.rg13-c13 .rg13-colbar { background: var(--rg-sky); }
+.rg13-c13 .rg13-colval { color: var(--rg-sky); }
+.rg13-cot .rg13-colbar { background: #4c6a82; }
+.rg13-cot .rg13-colval { color: #b7cde0; }
+
+/* Friday tiles */
+.rg13-tiles { margin-top: 16px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.rg13-tile { background: var(--rg-panel); border: 1px solid var(--rg-line); border-left: 5px solid var(--rg-blue); border-radius: 4px; padding: 16px 18px 16px; }
+.rg13-tile .rg13-league-tag { font-size: 14px; font-weight: 600; color: var(--rg-sky); }
+.rg13-big { font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif; font-weight: 800; font-size: 56px; line-height: 1; color: #fff; margin: 4px 0 6px; }
+.rg13-big small { font-size: 22px; font-weight: 700; color: var(--rg-mute); margin-left: 6px; }
+.rg13-tile p { font-size: 15px; color: var(--rg-text); }
+.rg13-vs { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--rg-line); font-size: 14px; color: var(--rg-mute); }
+.rg13-vs b { color: #fff; font-weight: 600; }
+
+/* Footer */
+.rg13-foot { margin-top: 26px; padding: 16px 32px 24px; border-top: 1px solid var(--rg-line); font-size: 13px; color: var(--rg-mute); }
+.rg13-foot p + p { margin-top: 6px; }
+.rg13-brand { display: inline-block; margin-top: 12px; font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif; font-weight: 800; font-size: 20px; color: #fff; letter-spacing: 0.5px; }
+.rg13-brand i { font-style: normal; color: var(--rg-sky); }
+
+@media (max-width: 720px) {
+  .rg13-head, .rg13-sec { padding-left: 18px; padding-right: 18px; }
+  .rg13-foot { padding-left: 18px; padding-right: 18px; }
+  .rg13-head h2 { font-size: 34px; }
+  .rg13-pairs { grid-template-columns: 1fr; }
+  .rg13-col { height: 120px; }
+  .rg13-tiles { grid-template-columns: 1fr; }
+  .rg13-big { font-size: 48px; }
+  .rg13-bar { font-size: 13px; padding: 0 8px; }
+  .rg13-baseline-note span { width: auto; }
+}
+</style>
+
+<div class="rg13" role="group" aria-label="Jersey No. 13 performance and Friday the 13th results in the NFL, NBA and NHL">
+
+  <div class="rg13-head">
+    <h2>No. 13 players beat the position average in all three leagues</h2>
+    <p>RotoGrinders compared 614 No. 13 player-seasons (242 athletes) with players wearing other numbers, 2016 to 2025. Remove a handful of stars and the NBA and NHL groups drop below average.</p>
+  </div>
+
+  <div class="rg13-sec">
+    <h3>Performance index: No. 13 vs. the average</h3>
+    <p class="rg13-sub">An index of 100 is the average for a player's position that season. Bars run on a 0 to 125 scale.</p>
+
+    <div class="rg13-legend">
+      <span><i class="rg13-key rg13-key-13"></i>All No. 13 players</span>
+      <span><i class="rg13-key rg13-key-nostar"></i>Without selected stars</span>
+      <span><i class="rg13-key rg13-key-line"></i>100 = position average</span>
+    </div>
+
+    <div class="rg13-chart">
+      <div class="rg13-league">
+        <div class="rg13-lname">NFL<small>Other numbers: 99.6 &middot; 233 No. 13 player-seasons</small></div>
+        <div class="rg13-track">
+          <div class="rg13-bar rg13-b13" style="width:93.4%"><span>All No. 13</span><b>116.7</b></div>
+          <div class="rg13-bar rg13-bno" style="width:80.8%"><span>Without selected stars</span><b>101.0</b></div>
+        </div>
+      </div>
+      <div class="rg13-league">
+        <div class="rg13-lname">NBA<small>Other numbers: 99.7 &middot; 182 No. 13 player-seasons</small></div>
+        <div class="rg13-track">
+          <div class="rg13-bar rg13-b13" style="width:87.4%"><span>All No. 13</span><b>109.2</b></div>
+          <div class="rg13-bar rg13-bno" style="width:74.5%"><span>Without selected stars</span><b>93.1</b></div>
+        </div>
+      </div>
+      <div class="rg13-league">
+        <div class="rg13-lname">NHL<small>Other numbers: 99.9 &middot; 199 No. 13 player-seasons</small></div>
+        <div class="rg13-track">
+          <div class="rg13-bar rg13-b13" style="width:83.4%"><span>All No. 13</span><b>104.2</b></div>
+          <div class="rg13-bar rg13-bno" style="width:72.9%"><span>Without selected stars</span><b>91.1</b></div>
+        </div>
+      </div>
+    </div>
+    <p class="rg13-sub" style="margin-top:10px">Stars removed: NFL, Mike Evans and Keenan Allen. NBA, James Harden and Paul George. NHL, Johnny Gaudreau, Sam Reinhart and Mathew Barzal.</p>
+  </div>
+
+  <div class="rg13-sec">
+    <h3>All-Star and Pro Bowl selection rate</h3>
+    <p class="rg13-sub">Selections per eligible player-season. No. 13 players more than doubled the rate of other numbers in the NBA and NHL.</p>
+
+    <div class="rg13-pairs">
+      <div class="rg13-pair">
+        <div class="rg13-lname">NFL Pro Bowl</div>
+        <div class="rg13-col">
+          <div class="rg13-colwrap rg13-c13"><div class="rg13-colval">9.44%</div><div class="rg13-colbar" style="height:94.4%"></div><div class="rg13-collab">No. 13</div></div>
+          <div class="rg13-colwrap rg13-cot"><div class="rg13-colval">5.29%</div><div class="rg13-colbar" style="height:52.9%"></div><div class="rg13-collab">Other numbers</div></div>
+        </div>
+      </div>
+      <div class="rg13-pair">
+        <div class="rg13-lname">NBA All-Star</div>
+        <div class="rg13-col">
+          <div class="rg13-colwrap rg13-c13"><div class="rg13-colval">8.24%</div><div class="rg13-colbar" style="height:82.4%"></div><div class="rg13-collab">No. 13</div></div>
+          <div class="rg13-colwrap rg13-cot"><div class="rg13-colval">3.86%</div><div class="rg13-colbar" style="height:38.6%"></div><div class="rg13-collab">Other numbers</div></div>
+        </div>
+      </div>
+      <div class="rg13-pair">
+        <div class="rg13-lname">NHL All-Star</div>
+        <div class="rg13-col">
+          <div class="rg13-colwrap rg13-c13"><div class="rg13-colval">9.29%</div><div class="rg13-colbar" style="height:92.9%"></div><div class="rg13-collab">No. 13</div></div>
+          <div class="rg13-colwrap rg13-cot"><div class="rg13-colval">4.21%</div><div class="rg13-colbar" style="height:42.1%"></div><div class="rg13-collab">Other numbers</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rg13-sec">
+    <h3>What happened on Friday the 13th</h3>
+    <p class="rg13-sub">43 NBA games and 22 NHL games fell on Friday the 13th in the study period. Samples are small.</p>
+
+    <div class="rg13-tiles">
+      <div class="rg13-tile">
+        <div class="rg13-league-tag">NBA overtime</div>
+        <div class="rg13-big">0<small>of 43 games</small></div>
+        <p>No NBA game played on Friday the 13th went to overtime.</p>
+        <div class="rg13-vs">All other NBA games: <b>5.3%</b> went to overtime</div>
+      </div>
+      <div class="rg13-tile">
+        <div class="rg13-league-tag">NHL upsets</div>
+        <div class="rg13-big">55%</div>
+        <p>Teams with the weaker pregame record won 55% of Friday the 13th games with a clear favorite.</p>
+        <div class="rg13-vs">All other NHL games: <b>42.48%</b></div>
+      </div>
+      <div class="rg13-tile">
+        <div class="rg13-league-tag">NHL penalties</div>
+        <div class="rg13-big">8.50<small>per game</small></div>
+        <p>Penalties per NHL game on Friday the 13th.</p>
+        <div class="rg13-vs">All other NHL games: <b>7.31</b></div>
+      </div>
+      <div class="rg13-tile">
+        <div class="rg13-league-tag">NBA fouls by No. 13 players</div>
+        <div class="rg13-big">2.81<small>per appearance</small></div>
+        <p>Personal fouls per appearance by No. 13 players on Friday the 13th (59 fouls in 21 appearances).</p>
+        <div class="rg13-vs">No. 13 players on other Fridays: <b>1.96</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rg13-foot">
+    <p>Source: RotoGrinders analysis of NFL (2016-2025), NBA and NHL (2016-17 to 2025-26) regular seasons. Data from Basketball-Reference, NHL official data sources, nflverse and Pro Bowl records, collected October 2026.</p>
+    <p>The player index divides output by the position-season average and multiplies by 100. Star exclusions are illustrative, not a statistical test. The research identifies associations, not cause and effect.</p>
+    <span class="rg13-brand">ROTO<i>GRINDERS</i></span>
+  </div>
+
+</div>
